@@ -30,21 +30,25 @@ public class MainController {
 		return "payment";
 	}
 
-    @Transactional
-    @RequestMapping(value="/payment",method=RequestMethod.POST)
+    @RequestMapping(value="/payment-process",method=RequestMethod.POST)
 	public String paymentProcess(@RequestParam String sender, 
 @RequestParam String receiver, @RequestParam Double amount) {
     String date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date());
+    System.out.println("date is " + date);
     String reference = date + amount + receiver;
+    System.out.println("reference is " + reference);
     Double balance;
     Balances senderBalance = balancesRepository.findByAccountNumber(sender);
+    System.out.println("first senderB " + senderBalance);
     if (senderBalance == null) {
-        Balances senderBalances = new Balances();
+        senderBalance = new Balances();
         balance = 50000.00;
     } else {
         balance = senderBalance.getBalance();
     }
+    System.out.println("last senderB " + senderBalance);
     senderBalance.setAccountNumber(sender);
+    System.out.println("balance " + (balance - amount));
     senderBalance.setBalance((Double) (balance - amount));
 
     Transactions transaction = new Transactions();
