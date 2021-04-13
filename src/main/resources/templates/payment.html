@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Transfer Request</title>
+    </head>
+    <body>
+        <h3>Make your transfer request here</h3>
+        <form th:action="@{/login}" method="post">
+            <div><label> from: account <input type="text" name="sender"/> </label></div>
+            <div><label> to: account <input type="text" name="receiver"/> </label></div>
+            <div><label> amount <input type="number" name="amount"/> </label></div>
+            <div><input type="submit" value="Proceed"/></div>
+        </form>
+    </body>
+</html>
