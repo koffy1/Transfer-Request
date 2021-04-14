@@ -6,4 +6,5 @@ import com.example.transferrequest.Transactions;
 
 public interface TransactionsRepository extends CrudRepository<Transactions, Long> {
 
+    public Transactions findByReference(String reference);
 }
