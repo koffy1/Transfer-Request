@@ -25,7 +25,6 @@ The default user is springuser
 
 The default password for the user is 00000000
 
-MySql database was used in this case
 
 #### Dependencies.
 This is a Java project and I used Java version 11 for this work.
@@ -33,3 +32,5 @@ This is a Java project and I used Java version 11 for this work.
 It is also running on spring, favoring Maven so you need to run ./mvnw spring-boot:run to build the project
 
 To build on debug mode, run ./mvnw -X spring-boot:run instead
+
+MySql database was used in this case
