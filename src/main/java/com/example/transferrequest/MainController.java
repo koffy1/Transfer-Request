@@ -47,6 +47,11 @@ public class MainController {
     } else {
         balance = senderBalance.getBalance();
     }
+
+    if (balance < amount) {
+        return "/insufficient";
+    }
+
     senderBalance.setAccountNumber(sender);
     senderBalance.setBalance((Double) (balance - amount));
 
